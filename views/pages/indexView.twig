@@ -73,11 +73,9 @@
           <div class="content">
             {{ recette.content|slice(0, 20) ~ '...' }}
             <br>
-            <a href="/?azerty=<?php echo $pr['id']; ?>">
+            <a href="/?recette={{ recette.id }}">
               Voir la recette
-
-
-            </a>
+           </a>
             <br>
             <time datetime="<?php echo $pr['date']; ?>">
               {{ recette.date }}
