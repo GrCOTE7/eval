@@ -1,134 +1,102 @@
 {% extends 'layouts/base.twig' %}
 
 {% block content %}
-  <div class="hero">
-    <div class="hero-body">
-      <div class="title">
-        Les recettes à Jojo
-                                      
-                              
-                      
-              
+<div class="hero">
+  <div class="hero-body">
+    <div class="title">
+      Les recettes à Jojo
+
+    </div>
+    <div class="subtitle">
+      Pou
+    </div>
+  </div>
+</div>
+<?php
+    if (!($_GET['azerty'] ?? null)) {
+	?>
+<div class="level mt-4">
+  <div class="has-text-centered level-item">
+    <div>
+      <div class="heading">
+        Recettes
+
       </div>
-      <div class="subtitle">
-        Pour devenir aussi fort que Le Jo' 
-                                      
-                              
-                      
-              
+      <div class="title">
+        {{ data.nbRecettes }}
       </div>
     </div>
   </div>
-  <?php
-if (!($_GET['azerty'] ?? null)) {
-	?>
-    <div class="level mt-4">
-      <div class="has-text-centered level-item">
-        <div>
-          <div class="heading">
-            Recettes
-                                                          
-                                              
-                                  
-                      
-          </div>
-          <div class="title">
-            {{ data.nbRecettes }}
+  <div class="has-text-centered level-item">
+    <div>
+      <div class="heading">
+        Ingrédients
+      </div>
+      <div class="title">
+        {{ data.nbIngredients }}
+      </div>
+    </div>
+  </div>
+  <div class="has-text-centered level-item">
+    <div>
+      <div class="heading">
+        J'aime
+      </div>
+      <div class="title">
+        {{ data.nbLikes }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="p-4">
+  <div class="columns">
+    {% for k, recette in data.recettes %}
+    <div class="is-4 column">
+      <div class="card">
+        <div class="card-image">
+          <div class="image is-4by3">
+            <img src="./assets/imgs/{{ recette.picture }}.jpeg" alt="photo 1">
+            ooo
+            {{ k }}
           </div>
         </div>
-      </div>
-      <div class="has-text-centered level-item">
-        <div>
-          <div class="heading">
-            Ingrédients
-                                                          
-                                              
-                                  
-                      
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              {{ data.username }}
+              <div class="title is-4">
+                {{ data.username }}
+              </div>
+            </div>
           </div>
-          <div class="title">
-            {{ data.nbIngredients }}
-          </div>
-        </div>
-      </div>
-      <div class="has-text-centered level-item">
-        <div>
-          <div class="heading">
-            J'aime
-                                                          
-                                              
-                                  
-                      
-          </div>
-          <div class="title">
-            {{ data.nbLikes }}
+          <div class="content">
+            {{ recette.content|slice(0, 20) ~ '...' }}
+            <br>
+            <a href="/?azerty=<?php echo $pr['id']; ?>">
+              Voir la recette
+
+
+            </a>
+            <br>
+            <time datetime="<?php echo $pr['date']; ?>">
+              {{ recette.date }}
+            </time>
           </div>
         </div>
       </div>
     </div>
+    {% endfor %}
+  </div>
+  <div class="pagination">
+    <a href="?ttt=<?php echo ($_GET['ttt'] ?? 0) ? (($_GET['ttt'] > 3) ? $_GET['ttt'] - 3 : 1) : 1; ?>"
+      class="pagination-previous">
+      Précédent
+    </a>
+    <a href="?ttt=<?php echo ($_GET['ttt'] ?? 0) ? $_GET['ttt'] + 3 : 1; ?>" class="pagination-next">
+      Suivant
+    </a>
+  </div>
+</div>
 
-    <div class="p-4">
-
-      <div class="columns">
-
-        {% for recette in recettes %}
-          <div class="is-4 column">
-            <div class="card">
-              <div class="card-image">
-                <div class="image is-4by3">
-                  <img src="./assets/imgs/{{ data.recette.picture }}.jpeg" alt="photo 1"></div>
-                </div>
-                <div class="card-content">
-                  <div class="media">
-                    <div class="media-content">
-                      {{ data.username }}
-                      <div class="title is-4">
-                        {{ data.username }}
-                      </div>
-                    </div>
-                  </div>
-                  <div class="content">
-                    <?php echo substr(?>
-                    {{ data.recette.content }}
-                    <?php ], 0, 20) . '...'; ?>
-                    <br>
-                      <a href="/?azerty=<?php echo $pr['id']; ?>">
-                        Voir la recette
-                                                                                                                      
-                                                                                              
-                                                                      
-                                              
-                      </a>
-                      <br>
-                        <time datetime="<?php echo $pr['date']; ?>">
-                          {{ data.recette.date }}
-                        </time>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              {% endfor %}
-            </div>
-            <?php
-
-	?>
-            <div class="pagination">
-              <a href="?ttt=<?php echo ($_GET['ttt'] ?? 0) ? (($_GET['ttt'] > 3) ? $_GET['ttt'] - 3 : 1) : 1; ?>" class="pagination-previous">
-                Précédent
-                                                                              
-                                                              
-                                              
-                              
-              </a>
-              <a href="?ttt=<?php echo ($_GET['ttt'] ?? 0) ? $_GET['ttt'] + 3 : 1; ?>" class="pagination-next">
-                Suivant
-                                                                              
-                                                              
-                                              
-                              
-              </a>
-            </div>
-          </div>
-
-        {% endblock %}
-        
+{% endblock %}
