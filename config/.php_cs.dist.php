@@ -1,7 +1,7 @@
 <?php
 
 /**
- * (ɔ) Online FORMAPRO - GC7 - 2022.
+ * (ɔ) Online FORMAPRO - GC7 - Éval. 10/2022.
  */
 
 return (new PhpCsFixer\Config())
@@ -9,7 +9,7 @@ return (new PhpCsFixer\Config())
 	->setRiskyAllowed(false)
 	->setRules([
 		'header_comment' => [
-			'header'       => '(ɔ) Online FORMAPRO - GC7 - 2022.',
+			'header'       => '(ɔ) Online FORMAPRO - GC7 - Éval. 10/2022.',
 			'comment_type' => 'PHPDoc',
 			'location'     => 'after_declare_strict',
 		],

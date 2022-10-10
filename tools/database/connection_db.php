@@ -4,7 +4,7 @@
  * (ɔ) Online FORMAPRO - GC7 - 2022.
  */
 
-require_once 'config_db.php';
+require_once './tools/database/config_db.php';
 
 try {
 	$connection = new PDO(

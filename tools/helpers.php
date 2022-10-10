@@ -1,6 +1,6 @@
 <?php
 
-require_once 'tools/functions.php';
+require_once './tools/functions.php';
 
 $GLOBALS['ROOT_DOCUMENT'] = realpath($_SERVER['DOCUMENT_ROOT']);
 
