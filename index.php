@@ -17,6 +17,8 @@ $twig->addExtension(new \Twig\Extension\DebugExtension());
 
 $page = 'index';
 
+// aff(123);
+
 require_once controllers($page);
 $template = $twig->load('pages/' . $page . 'View.twig');
 

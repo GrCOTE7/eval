@@ -22,7 +22,7 @@
 
       </div>
       <div class="title">
-        {{ data.nbRecettes }}
+        {{ data.nbRecipes }}
       </div>
     </div>
   </div>
@@ -50,12 +50,12 @@
 
 <div class="p-4">
   <div class="columns">
-    {% for k, recette in data.recettes %}
+    {% for k, recipe in data.recipes %}
     <div class="is-4 column">
       <div class="card">
         <div class="card-image">
           <div class="image is-4by3">
-            <img src="./assets/imgs/{{ recette.picture }}.jpeg" alt="photo 1">
+            <img src="./assets/imgs/{{ recipe.picture }}.jpeg" alt="photo 1">
             ooo
             {{ k }}
           </div>
@@ -70,14 +70,14 @@
             </div>
           </div>
           <div class="content">
-            {{ recette.content|slice(0, 20) ~ '...' }}
+            {{ recipe.content|slice(0, 20) ~ '...' }}
             <br>
-            <a href="/?recette={{ recette.id }}">
+            <a href="/?recette={{ recipe.id }}">
               Voir la recette
            </a>
             <br>
             <time datetime="<?php echo $pr['date']; ?>">
-              {{ recette.date }}
+              {{ recipe.date }}
             </time>
           </div>
         </div>

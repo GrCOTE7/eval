@@ -1,0 +1,12 @@
+<?php
+
+$sql ="
+CREATE TABLE `ingredients` (
+	`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`nom` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	PRIMARY KEY (`id`) USING BTREE
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=1;
+";

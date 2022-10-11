@@ -4,14 +4,16 @@
  * (ɔ) Online FORMAPRO - GC7 - Éval. 10/2022.
  */
 
-include_once './models/recettesModel.php';
+include_once './models/recipesModel.php';
 
-$data['nbRecettes']    = getNbRecettes();
+$title = 'Liste';
+
+$data['nbRecipes']    = getNbRecipes();
 $data['nbIngredients'] = getNbIngredients();
 $data['nbLikes']       = getNbLikes();
 
 
-$data['recettes']       = getRecettes();
+$data['recipes']       = getRecipes();
 $data['username']=getUsernameById(1);
 
 
